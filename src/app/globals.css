@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fefefe;
   --foreground: #171717;
+  --accent: #f5a623;
+  --accent-light: #fff8e7;
+  --card-bg: #ffffff;
+  --card-border: #f0ebe3;
+  --muted: #8a8a8a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0f0f0f;
     --foreground: #ededed;
+    --accent: #f5a623;
+    --accent-light: #2a2210;
+    --card-bg: #1a1a1a;
+    --card-border: #2a2a2a;
+    --muted: #888888;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Paw print animation */
+@keyframes paw-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.paw-bounce {
+  animation: paw-bounce 2s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.fade-in-up-delay-1 {
+  animation: fade-in-up 0.6s ease-out 0.15s forwards;
+  opacity: 0;
+}
+
+.fade-in-up-delay-2 {
+  animation: fade-in-up 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.fade-in-up-delay-3 {
+  animation: fade-in-up 0.6s ease-out 0.45s forwards;
+  opacity: 0;
 }
